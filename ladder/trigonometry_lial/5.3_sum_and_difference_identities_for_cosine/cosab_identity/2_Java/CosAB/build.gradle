@@ -1,0 +1,21 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()  // Required to download JUnit
+}
+
+dependencies {
+    // The standard testing library for Java
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+}
+
+application {
+    mainClass = 'Main'
+}
+
+// Tells Gradle to use the modern JUnit 5 platform
+test {
+    useJUnitPlatform()
+}
