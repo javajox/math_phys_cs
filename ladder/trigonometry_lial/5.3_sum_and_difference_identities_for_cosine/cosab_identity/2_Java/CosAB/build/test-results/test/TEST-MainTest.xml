@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-01-12T17:14:35" hostname="DimaPC" time="0.02">
-  <properties/>
-  <testcase name="testCosAB_When_A_Is_0_and_B_Is_O()" classname="MainTest" time="0.016"/>
-  <testcase name="testCosAB_When_A_Is_Pi_and_B_Is_Pi()" classname="MainTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
