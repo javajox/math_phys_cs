@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <time.h>      // Required for clock()
-#include "cos_ab.h"    // Your function header
+#include <time.h>
+#include "cos_ab.h"
 
 #define ITERATIONS 10000000 // 10 Million loops
 

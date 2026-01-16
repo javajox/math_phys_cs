@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <math.h>
-#include "cos_ab.h" // Include the header to use the function
+#include "cos_ab.h"
 
 // Universal PI definition
 #ifndef M_PI
