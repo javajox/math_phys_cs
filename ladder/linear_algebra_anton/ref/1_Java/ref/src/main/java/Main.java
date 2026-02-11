@@ -2,6 +2,8 @@ import org.ejml.simple.SimpleMatrix;
 
 public class Main {
 
+    private static final double EPS = 1e-10;
+
     static class Pivot {
         Pivot(double maxVal, int index) {
             this.maxVal = maxVal;
@@ -13,12 +15,12 @@ public class Main {
 
     private Pivot findPivot(SimpleMatrix m, int currentRow, int pivotCol) {
         int rows = m.getNumRows();
-        Pivot pivot = new Pivot(-1, -1);
+        Pivot pivot = new Pivot(0.0, -1);
         for (int i = currentRow; i < rows; i++) {
             double currentVal = Math.abs(m.get(i, pivotCol));
-            if (currentVal > pivot.maxVal) {
+            if (currentVal > pivot.maxVal && currentVal > EPS) {
                 pivot.maxVal = currentVal;
-                pivot.index = i - currentRow;
+                pivot.index = i;
             }
         }
         return pivot;
@@ -43,9 +45,9 @@ public class Main {
     private void eliminateBelow(SimpleMatrix m, int currentRow, int pivotCol) {
         for (int r = currentRow + 1; r < m.getNumRows(); r++) {
             double multiplier = m.get(r, pivotCol);
-            SimpleMatrix pivotRow = m.rows(currentRow, currentRow+1);
-            SimpleMatrix updateRow = m.rows(r, r+1).minus(pivotRow.scale(multiplier));
-            m.insertIntoThis(r, 0, updateRow);
+            for (int col = 0; col < m.getNumCols(); col++) {
+                m.set(r, col, m.get(r, col) - multiplier * m.get(currentRow, col));
+            }
         }
     }
 
@@ -58,8 +60,7 @@ public class Main {
 
         while (currentRow < rows && pivotCol < cols) {
             Pivot pivot = findPivot(m, currentRow, pivotCol);
-            pivot.index = pivot.index + currentRow;
-            if (pivot.maxVal == 0) {
+            if (pivot.index == -1) {
                 ++pivotCol;
                 continue;
             }
