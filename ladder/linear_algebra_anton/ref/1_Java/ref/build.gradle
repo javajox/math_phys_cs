@@ -6,6 +6,9 @@ plugins {
 java {
     sourceCompatibility = JavaVersion.VERSION_25
     targetCompatibility = JavaVersion.VERSION_25
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
 }
 
 repositories {
@@ -14,7 +17,16 @@ repositories {
 
 dependencies {
     // The standard testing library for Java
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    //testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    testImplementation(platform("org.junit:junit-bom:6.0.2"))
+    testImplementation("org.junit.jupiter:junit-jupiter")
+
+    // 2. THE MISSING PIECE: Explicitly add the launcher for Gradle 9+
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+    implementation("org.ejml:ejml-simple:0.44.0")
+    implementation("org.ejml:ejml-core:0.44.0")
+    implementation("org.ejml:ejml-all:0.44.0")
 }
 
 application {
