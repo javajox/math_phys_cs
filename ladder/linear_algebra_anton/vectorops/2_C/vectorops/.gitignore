@@ -1,0 +1,66 @@
+# ==============================
+# CLion / CMake Specific
+# ==============================
+.idea/
+cmake-build-*/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+
+# ==============================
+# Compiled Object files
+# ==============================
+*.o
+*.ko
+*.obj
+*.elf
+
+# ==============================
+# Compiled Dynamic libraries
+# ==============================
+*.so
+*.dylib
+*.dll
+
+# ==============================
+# Compiled Static libraries
+# ==============================
+*.la
+*.lai
+*.a
+*.lib
+
+# ==============================
+# Executables
+# ==============================
+*.exe
+*.out
+*.app
+
+# ==============================
+# OS Generated Files
+# ==============================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ==============================
+# Linux / Ubuntu Specific
+# ==============================
+# Core dumps (generated when a C program crashes)
+core
+core.*
+
+# Temporary files created by Linux text editors (Nano, Vim, etc.)
+*~
+.*.swp
+.*.swo
+
+# KDE directory preferences (if you ever use Kubuntu/KDE)
+.directory
+
